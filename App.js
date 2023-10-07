@@ -1,12 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { enableScreens } from 'react-native-screens';
+enableScreens();
+
+import Home from './src/routes/Home';
+import Carrito from './src/routes/Carrito';
+import Price from './src/routes/Prices';
+import { CartContext } from './src/components/CartContext';
+
 export default function App() {
+
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CartContext>
+      <NavigationContainer styles={styles.container}>
+        <Stack.Navigator>
+          <Stack.Screen name="home" component={Home} />
+          <Stack.Screen name="carrito" component={Carrito} />
+          <Stack.Screen name="price" component={Price} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartContext>
   );
 }
 
