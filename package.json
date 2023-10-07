@@ -31,7 +31,8 @@
     "sequelize": "^6.33.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "dotenv-webpack": "^8.0.1"
   },
   "private": true
 }

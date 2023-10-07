@@ -3,12 +3,13 @@ import axios from 'axios';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTotal } from './CartContext';
 
-const apiUrl = 'http://192.168.1.98:3000';
+
 
 function Products({ onTotalPriceChange }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
-  const { totalPrice, updateTotalPrice, updateTotalQuantity } = useTotal(); // Agregar updateTotalQuantity
+  const { totalPrice, updateTotalPrice, updateTotalQuantity } = useTotal(); 
+  const apiUrl ="http://192.168.1.98:3000";
 
   useEffect(() => {
     axios

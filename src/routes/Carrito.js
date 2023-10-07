@@ -7,9 +7,10 @@ export default function Carrito() {
   const { totalPrice, resetTotalPrice, totalQuantity } = useTotal();
   const [userName, setUserName] = useState(""); 
   const navigation = useNavigation();
+  const apiUrl = "http://192.168.1.98:3000";
   const handleCreateQuote = async () => {
     try {
-      const response = await fetch("http://192.168.1.98:3000/api/cotizaciones", {
+      const response = await fetch(`${apiUrl}/api/cotizaciones`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

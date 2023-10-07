@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -5,14 +6,9 @@ const cors = require('cors');
 
 // Middleware para habilitar CORS
 app.use(cors());
-
 // Inicialización del servidor
 app.get("/", (req, res) => {
   res.send("Servidor backend!");
-});
-
-app.listen(port, "0.0.0.0", () => {
-  console.log(`El servidor está escuchando en el puerto ${port}`);
 });
 
 // Configuración de la conexión a la base de datos
@@ -69,4 +65,7 @@ app.get('/api/cotizaciones', async (req, res) => {
     console.error('Error al obtener cotizaciones:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
+});
+app.listen(port, "0.0.0.0", () => {
+  console.log(`El servidor está escuchando en el puerto ${port}`);
 });
